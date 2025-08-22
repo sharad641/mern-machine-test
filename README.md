@@ -1,97 +1,115 @@
-🚀 MERN Machine Test — Full Solution
+# 🚀 MERN Machine Test — Full Solution
 
-This repository contains a complete MERN stack implementation for the machine test.
+This project is a **mini CRM system** built with the **MERN stack** for the assessment.  
+It allows an **Admin** to log in, manage **Agents**, and upload a **Contacts CSV/XLSX** file, which gets **automatically distributed among 5 agents**.
 
-✅ Features
+---
 
-Admin login with JWT authentication
+## ✨ Features
+✅ Admin login with **JWT Authentication**  
+✅ Add & manage Agents  
+✅ Upload `.csv`, `.xlsx`, `.xls`, `.axls` files  
+✅ Automatic **equal distribution of contacts** among 5 agents  
+✅ Data stored in **MongoDB**  
+✅ Clean React frontend with **JWT-protected routes**  
 
-Agent creation & management
+---
 
-File upload (CSV / XLSX / XLS / AXLS)
+## 📸 Screenshots
 
-Equal distribution of contacts to 5 agents (round-robin)
+### Dashboard Preview
+![Dashboard](https://github.com/sharad641/mern-machine-test/blob/main/client/photos/1.jpg?raw=true)
 
-Distributed lists saved in MongoDB and displayed in frontend
+### Agent Distribution
+![Distribution](https://github.com/sharad641/mern-machine-test/blob/main/client/photos/2.jpg?raw=true)
 
+---
 
-⚡ Quick Start
-1️⃣ Server Setup
+## ⚡ Quick Start
 
+### 1️⃣ Backend (Server)
+```bash
 cd server
-cp .env.example .env   # edit .env with your MongoDB URI & JWT secret
+cp .env.example .env   # update your MongoDB URI & JWT_SECRET
 npm install
 npm run dev
 
-👉 Seed an admin:
+Seed an Admin
 POST http://localhost:5000/api/auth/seed-admin
 {
-  "name": "Admin",
-  "email": "admin@example.com",
-  "password": "Admin@12345"
+  "name":"Admin",
+  "email":"admin@example.com",
+  "password":"Admin@12345"
 }
-👉 Login as admin:
-
+Login
 POST http://localhost:5000/api/auth/login
 {
-  "email": "admin@example.com",
-  "password": "Admin@12345"
+  "email":"admin@example.com",
+  "password":"Admin@12345"
 }
-
-2️⃣ Client Setup
+2️⃣ Frontend (Client)
 cd client
-cp .env.example .env   # configure API URL if needed
+cp .env.example .env   # update VITE_API_URL if needed
 npm install
 npm run dev
-Open ➝ http://localhost:5173
+Open → http://localhost:5173
 
-Login with your seeded admin credentials.
+Login with your seeded Admin credentials.
+🔄 Workflow
 
-3️⃣ Workflow
+Admin logs in ✅
 
-Create at least 5 agents (Name, Email, Mobile, Password).
+Create at least 5 agents ✅
 
-Upload a file (.csv, .xlsx, .xls, .axls) with columns:
-FirstName, Phone, Notes
+Upload a contact list (.csv/.xlsx/.xls/.axls) with columns:
 
-The server distributes rows equally among 5 agents using round-robin.
+FirstName (text)
 
-Example: 25 rows → each gets 5.
+Phone (number)
 
-Example: 27 rows → each gets 5, and 2 extra go to first 2 agents.
+Notes (text)
 
-Data is stored in MongoDB and displayed on the dashboard.
-🖼️ Screenshots
-🔑 Login Page
+The server:
 
-📊 Dashboard with Distributed Lists
+Validates the file format
 
-📌 Notes
+Distributes contacts equally among agents (round-robin)
 
-The server enforces at least 5 agents before uploading a file.
+Saves distribution in MongoDB
 
-Allowed file types: csv, xlsx, xls, axls.
+Dashboard shows per-agent contact lists ✅
+🛠️ Tech Stack
 
-Built with:
+MongoDB → Database
 
-Backend: Node.js + Express.js + MongoDB
+Express.js → Backend Framework
 
-Frontend: React + Vite + Axios
+React (Vite) → Frontend
 
-Auth: JWT (Bearer Token)
+Node.js → Server Runtime
 
-Validation handled with Joi & central error middleware.
+JWT → Authentication
 
-🏁 Final Words
+Multer + XLSX → File Upload & Parsing
+⚙️ Notes
 
-This is a mini CRM system where the Admin can:
+Minimum 5 agents required before upload.
 
-Login securely 🔐
+Supported file types → .csv, .xlsx, .xls, .axls
 
-Manage agents 👥
+Error handling with centralized middleware.
 
-Upload & distribute leads 📂
+Code is modular and commented for readability.
 
-View all assignments on the dashboard 📊
+👨‍💻 Author
 
-Good luck with your submission 🚀
+Made by Devdas ✨
+
+---
+
+✅ This README will look **modern** on GitHub with screenshots + clear sections.  
+✅ The **code blocks** are formatted to run in one terminal for server and client setup.  
+
+---
+
+Would you like me to also create a **one-liner project description** you can paste in your GitHub repo description (just under repo name) for recruiters?
